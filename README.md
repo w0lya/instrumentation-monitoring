@@ -1,8 +1,8 @@
-# Reporting App
+# Monitoring App
 
 [![Build status](https://ci.appveyor.com/api/projects/status/drra1gtp1r2tqp1q?svg=true)](https://ci.appveyor.com/project/w0lya/instrumentation-monitoring)
 
-A simple socket-based application implemented for displaying web request tracing data.
+A simple socket-based application implemented for displaying web request log data.
 Intended to be used together with [Instrumentation Middleware](https://github.com/w0lya/DotnetInstrumentation).
 The Middleware component, when hooked to a running .NET Core web site, fetches information about every request and sends it to an endpoint specified in configuration. This reporting application is what is behind that endpoint. In the next section, the main features of the app are described.
 
@@ -23,11 +23,11 @@ The Middleware component, when hooked to a running .NET Core web site, fetches i
 3. Open Terminal ( Ctrl + ` )
 4. Run 'npm update'
 5. Run 'node server.js'
-6. in your browser, go to localhost:3000. The app should load the pre-existing request data if any.
+6. in your browser, go to _localhost:3000_. The app should load the pre-existing request data if any.
 
 ## Seeing updates in real time
 
-When you post data to /messages route, the app saves it and adds it to the UI instantly.
+When you post data to _/messages_ route, the app saves it to DB and adds it to the UI instantly.
 
 Here is an example of a request:
 ```
@@ -46,26 +46,27 @@ This monitoring (reporting) app is based on Node.js on the backend, uses Socket.
 ## Future improvements
 1. Move MongoDb connection string into config.
 2. Use token-based authentication instead of user + password for MongoDb. 
-3. Add authentication and authorization at app level.
+3. Add authentication and authorization at app level, socket level.
 3. Use TypeScript for type safety.
-4. Install and reference all the dependencies via a package manager, remove hardcoded CDN links.
+4. Install and reference all the dependencies (e.g. Vue.JS) via a package manager, remove hardcoded CDN links.
 5. Add minification, linting etc.
-6. Implement more unit and integration tests.
-7. Protect the app against heavy load by:
+6. Add some style beyond the minimalistic basics.
+7. Implement more unit and integration tests.
+8. Protect the app against heavy load by:
   - turning the request data log table into a paginated grid. Use a standard grid component
   - adding logic to batch the UI updates when the frequency of incoming requests is high
   - adding logic to purge the old data and only leave the X most recent records to be loaded (or move to a new 'archive' Db collection in Mongo)
   - limiting the Max number of allowed connections to the socket
-8. Take response codes into consideration when calculating response size stats. E.g. non-200 responses shouldn't mess up the Min, Max and Average times.
-9. Logging, exception handling.
-10. Unit and integration tests.
-10. Config merging.
-11. Separate Components in the UI.
-12. Folder structure (server, client etc.)
-13. Enable logging and reporting from multiple applications.
-14. Enable filtering, sorting of the logs (might just be done in 7.).
-15. Add 'how to deploy' to README.
-16. HTTPS.
+9. Take response codes into consideration when calculating response size stats. E.g. non-200 responses shouldn't mess up the Min, Max and Average times.
+10. Logging, exception handling.
+11. Unit and integration tests.
+12. Config merging.
+13. Separate Components in the UI.
+14. Folder structure (server, client etc.)
+15. Enable logging and reporting from multiple applications. 
+16. Enable filtering, sorting of the logs (might just be done in 7.).
+17. Add 'how to deploy' to README.
+18. HTTPS.
 
 
  
