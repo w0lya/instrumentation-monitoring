@@ -1,5 +1,7 @@
 # Reporting App
 
+[![Build status](https://ci.appveyor.com/api/projects/status/drra1gtp1r2tqp1q?svg=true)](https://ci.appveyor.com/project/w0lya/instrumentation-monitoring)
+
 A simple socket-based application implemented for displaying web request tracing data.
 Intended to be used together with InstrumentationMiddleware [link].
 
