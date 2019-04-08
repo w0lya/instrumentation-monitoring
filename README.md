@@ -4,7 +4,7 @@
 
 A simple socket-based application implemented for displaying web request log data.
 Intended to be used together with [Instrumentation Middleware](https://github.com/w0lya/DotnetInstrumentation).
-The Middleware component, when hooked to a running .NET Core web site, fetches information about every request and sends it to an endpoint specified in configuration. This reporting application is what is behind that endpoint. In the next section, the main features of the app are described.
+The Middleware component, when hooked to a running .NET Core web site, fetches information about every request and sends it to an endpoint specified in configuration. This monitoring application is what is behind that endpoint. In the next section, the main features of the app are described.
 
 ## Features
 - Listens for incoming requests and saves request data to an Azure-hosted instance of MongoDb.
@@ -44,15 +44,14 @@ To test, open Postman or Fiddler, create a POST request to localhost:3000/messag
 This monitoring (reporting) app is based on Node.js on the backend, uses Socket.IO and the UI part is implemented using Vue.js.
 
 ## Future improvements
-1. Move MongoDb connection string into config.
-2. Use token-based authentication instead of user + password for MongoDb. 
-3. Add authentication and authorization at app level, socket level.
+1. Use token-based authentication instead of user + password for MongoDb. 
+2. Add authentication and authorization at app level, socket level.
 3. Use TypeScript for type safety.
 4. Install and reference all the dependencies (e.g. Vue.JS) via a package manager, remove hardcoded CDN links.
 5. Add minification, linting etc.
 6. Add some style beyond the minimalistic basics.
 7. Implement more unit and integration tests.
-8. Protect the app against heavy load by:
+8. Protect the app against heavy load and crashing by:
   - turning the request data log table into a paginated grid. Use a standard grid component
   - adding logic to batch the UI updates when the frequency of incoming requests is high
   - adding logic to purge the old data and only leave the X most recent records to be loaded (or move to a new 'archive' Db collection in Mongo)
@@ -64,7 +63,7 @@ This monitoring (reporting) app is based on Node.js on the backend, uses Socket.
 13. Separate Components in the UI.
 14. Folder structure (server, client etc.)
 15. Enable logging and reporting from multiple applications. 
-16. Enable filtering, sorting of the logs (might just be done in 7.).
+16. Enable filtering, sorting of the logs (might just be addressed by using a stanard grid).
 17. Add 'how to deploy' to README.
 18. HTTPS.
 
