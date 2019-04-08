@@ -45,7 +45,8 @@ This monitoring (reporting) app is based on Node.js on the backend, uses Socket.
 
 ## Future improvements
 1. Move MongoDb connection string into config.
-2. Use token-based authentication instead of user + password.
+2. Use token-based authentication instead of user + password for MongoDb. 
+3. Add authentication and authorization at app level.
 3. Use TypeScript for type safety.
 4. Install and reference all the dependencies via a package manager, remove hardcoded CDN links.
 5. Add minification, linting etc.
@@ -54,9 +55,9 @@ This monitoring (reporting) app is based on Node.js on the backend, uses Socket.
   - turning the request data log table into a paginated grid. Use a standard grid component
   - adding logic to batch the UI updates when the frequency of incoming requests is high
   - adding logic to purge the old data and only leave the X most recent records to be loaded (or move to a new 'archive' Db collection in Mongo)
-  - limiting the Max number of allowed connections to socket
-8. Take response codes into consideration when calculating response size stats (only calc for 200 ones).
-9. Logging, exception handling...
+  - limiting the Max number of allowed connections to the socket
+8. Take response codes into consideration when calculating response size stats. E.g. non-200 responses shouldn't mess up the Min, Max and Average times.
+9. Logging, exception handling.
 10. Unit and integration tests.
 10. Config merging.
 11. Separate Components in the UI.
@@ -64,6 +65,7 @@ This monitoring (reporting) app is based on Node.js on the backend, uses Socket.
 13. Enable logging and reporting from multiple applications.
 14. Enable filtering, sorting of the logs (might just be done in 7.).
 15. Add 'how to deploy' to README.
+16. HTTPS.
 
 
  
